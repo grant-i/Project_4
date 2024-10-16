@@ -123,15 +123,23 @@ df.head()
 
 # Shape of Data
 
+![alt text](https://github.com/grant-i/Project_4/blob/main/figures/histogram_1.png)
+![alt text](https://github.com/grant-i/Project_4/blob/main/figures/scatter_1.png)
+
 ```# Remove rows where RetailPrice is greater than 30
 df_no_outliers = df[df['RetailPrice'] <= 30]
 ```
+
+![alt text](https://github.com/grant-i/Project_4/blob/main/figures/hist_2.png)
+![alt text](https://github.com/grant-i/Project_4/blob/main/figures/scat_2.png)
 
 # Inspect Features
 ```# Correlation of Data
 sns.heatmap(df_essentials.corr(), annot=True, cmap='coolwarm')
 plt.show()
 ```
+
+![alt text](https://github.com/grant-i/Project_4/blob/main/figures/heat_map.png)
 
 5. Model Data
 
@@ -159,5 +167,8 @@ line_coefficients, line_intercept
 
 Mean Squared Error: 12.495409510694495
 R-squared: 0.43026604968281645
+
+
+![alt text](https://github.com/grant-i/Project_4/blob/main/figures/linear_reg_!.png)
 
 Maybe a poor fit because of clusters
