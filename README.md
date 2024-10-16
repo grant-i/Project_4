@@ -46,12 +46,13 @@ The performance of the models was evaluated using metrics such as R² and Mean S
 To run the project locally, follow these steps:
 
 1. Clone the repository:
-   ```bash
+```
    git clone https://github.com/grant-i/Project_4
+```
 
 2. Install required dependencies:
-   You can create a `requirements.txt` file and include the following packages to make installation easier:
-   ```txt
+   
+```
    pandas
    scikit-learn
    seaborn
@@ -60,6 +61,7 @@ To run the project locally, follow these steps:
    hvplot
    plotly
    statsmodels
+```
 
 ## Data Loading, Standardization, and Cleaning
 
@@ -69,7 +71,7 @@ To run the project locally, follow these steps:
 
 Here's an example of loading the datasets used in the project:
 
-```python
+```
 def load_data(file_path):
     path = Path(file_path)
     if path.is_file():
@@ -77,7 +79,7 @@ def load_data(file_path):
     else:
         print(f"Error: {file_path} not found.")
         return pd.DataFrame()
-
+```
 Load datasets
 ```
     veg_df = load_data('part 1 ETL Workflow/raw_files/Vegetable-Prices-2022.csv')
@@ -113,16 +115,19 @@ missing_values = df_cleaned.isnull().sum()
 
 # Step 3: Drop rows with missing target values (if any)
 df_cleaned = df_cleaned.dropna(subset=['RetailPrice'])
-
+```
 # Save the dataset to CSV
+
+```
 df = pd.read_csv('final_working.csv')
 df.head()
 ```
 
 4. Visually Inspect Data
 
-![alt text](https://github.com/grant-i/Project_4/blob/main/figures/histogram_1.png)
-![alt text](https://github.com/grant-i/Project_4/blob/main/figures/scatter_1.png)
+# Graphs
+
+![alt text](https://github.com/grant-i/Project_4/blob/main/figures/histogram_1.png) ![alt text](https://github.com/grant-i/Project_4/blob/main/figures/scatter_1.png)
 
 # Shape of Data
 
@@ -130,11 +135,11 @@ df.head()
 df_no_outliers = df[df['RetailPrice'] <= 30]
 ```
 
-![alt text](https://github.com/grant-i/Project_4/blob/main/figures/hist_2.png)
-![alt text](https://github.com/grant-i/Project_4/blob/main/figures/scat_2.png)
+![alt text](https://github.com/grant-i/Project_4/blob/main/figures/hist_2.png) ![alt text](https://github.com/grant-i/Project_4/blob/main/figures/scat_2.png)
 
 # Inspect Features
-```# Correlation of Data
+```
+# Correlation of Data
 sns.heatmap(df_essentials.corr(), annot=True, cmap='coolwarm')
 plt.show()
 ```
@@ -177,6 +182,8 @@ Maybe a poor fit because of clusters
 ![alt text](https://github.com/grant-i/Project_4/blob/main/figures/scatter_cluster.png)
 
 
+
+Random Forest is supposed to be better at seeing clusters especially since linear regression is made for lines.
 # Random Forest Regresson
 
 ```
@@ -189,24 +196,19 @@ X_train, X_test, y_train, y_test = train_test_split(forest_X, forest_y, test_siz
 
 rf = RandomForestRegressor(n_estimators=100, random_state=42)
 rf.fit(X_train, y_train)
-```dotnetcli
+```
 
-Mean Squared Error: 13.950298154366925
-R-squared: 0.36392973205179613
+Random Forest R-squared: 0.36392973205179613 compared to Linear Regression R-squared: 0.43026604968281645
 
+Random Forest Mean Squared Error: 13.950298154366925 compared to Linear Regression Mean Squared Error: 12.495409510694495
 
-Random Forest R-squared: 0.36392973205179613
-Linear Regression R-squared: 0.43026604968281645
-
-Random Forest Mean Squared Error: 13.950298154366925
-Linear Regression Mean Squared Error: 12.495409510694495
-
-**Random Forest is supposed to be better at seeing clusters especially since linear regression is made for lines.
+**No Improvement**
 
 ![alt text](https://github.com/grant-i/Project_4/blob/main/figures/forest_FI.png)
 
 ![alt text](https://github.com/grant-i/Project_4/blob/main/figures/cor_RP.png)
 
+```
                              Feature   VIF
 
 0     transformed_carbohydrates_100g   39.786989
@@ -220,7 +222,7 @@ Linear Regression Mean Squared Error: 12.495409510694495
 8                  transformed_g_sum  136.725746
 9                        RetailPrice    1.939766
 10                          constant    6.251324
-
+```
 
 
 # Feature Selection and Model Validation
@@ -246,6 +248,8 @@ Linear Regression R-squared: 0.43026604968281645
 
 Mean Squared Error (**Reduced Features**): 11.850553551899461
 R-squared (**Reduced Features**): 0.4596685540565566
+
+*Improvement*
 
 ![alt text](https://github.com/grant-i/Project_4/blob/main/figures/line_compare.png)
 
@@ -319,10 +323,11 @@ print(f"Mean Squared Error: {mse}")
 print(f"R-squared: {r2}")
 ```
 
-Mean Squared Error: 10.800929008597786
-R-squared: 0.5075266684219414
+**Mean Squared Error: 10.800929008597786** 
+**R-squared: 0.5075266684219414**
 
+*Improvement*
 
 ![alt text](https://github.com/grant-i/Project_4/blob/main/figures/pca_viz_1.png)
 
-[alt text](https://github.com/grant-i/Project_4/blob/main/figures/pca_viz_2.png)
+![alt text](https://github.com/grant-i/Project_4/blob/main/figures/pca_viz_2.png)
