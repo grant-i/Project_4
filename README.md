@@ -121,10 +121,10 @@ df.head()
 
 4. Visually Inspect Data
 
-# Shape of Data
-
 ![alt text](https://github.com/grant-i/Project_4/blob/main/figures/histogram_1.png)
 ![alt text](https://github.com/grant-i/Project_4/blob/main/figures/scatter_1.png)
+
+# Shape of Data
 
 ```# Remove rows where RetailPrice is greater than 30
 df_no_outliers = df[df['RetailPrice'] <= 30]
@@ -172,3 +172,6 @@ R-squared: 0.43026604968281645
 ![alt text](https://github.com/grant-i/Project_4/blob/main/figures/linear_reg_!.png)
 
 Maybe a poor fit because of clusters
+
+
+![alt text](https://github.com/grant-i/Project_4/blob/main/figures/scatter_cluster.png
