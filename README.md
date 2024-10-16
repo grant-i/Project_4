@@ -174,4 +174,155 @@ R-squared: 0.43026604968281645
 Maybe a poor fit because of clusters
 
 
-![alt text](https://github.com/grant-i/Project_4/blob/main/figures/scatter_cluster.png
+![alt text](https://github.com/grant-i/Project_4/blob/main/figures/scatter_cluster.png)
+
+
+# Random Forest Regresson
+
+```
+# Prepare the data for training
+forest_X = df_essentials[features]
+forest_y = df_essentials[target]
+
+# Split the data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(forest_X, forest_y, test_size=0.2, random_state=42)
+
+rf = RandomForestRegressor(n_estimators=100, random_state=42)
+rf.fit(X_train, y_train)
+```dotnetcli
+
+Mean Squared Error: 13.950298154366925
+R-squared: 0.36392973205179613
+
+
+Random Forest R-squared: 0.36392973205179613
+Linear Regression R-squared: 0.43026604968281645
+
+Random Forest Mean Squared Error: 13.950298154366925
+Linear Regression Mean Squared Error: 12.495409510694495
+
+**Random Forest is supposed to be better at seeing clusters especially since linear regression is made for lines.
+
+![alt text](https://github.com/grant-i/Project_4/blob/main/figures/forest_FI.png)
+
+![alt text](https://github.com/grant-i/Project_4/blob/main/figures/cor_RP.png)
+
+                             Feature   VIF
+
+0     transformed_carbohydrates_100g   39.786989
+1               transformed_fat_100g   10.062862
+2          transformed_proteins_100g    2.560955
+3            transformed_sugars_100g    4.677926
+4              transformed_salt_100g    1.858409
+5            transformed_other_carbs    5.595568
+6            transformed_energy_100g   95.999928
+7   transformed_reconstructed_energy  230.609919
+8                  transformed_g_sum  136.725746
+9                        RetailPrice    1.939766
+10                          constant    6.251324
+
+
+
+# Feature Selection and Model Validation
+```# Create a copy of the features list to avoid modifying the original
+reduced_features = features.copy()
+
+# Remove the unwanted features
+reduced_features.remove('transformed_sugars_100g')
+reduced_features.remove('transformed_reconstructed_energy')
+
+print(reduced_features)
+```
+
+# Linear Regression 
+
+```
+X_reduced = df_no_outliers[reduced_features]
+y = df_no_outliers[target]
+```
+
+Linear Regression Mean Squared Error: 12.495409510694495
+Linear Regression R-squared: 0.43026604968281645
+
+Mean Squared Error (**Reduced Features**): 11.850553551899461
+R-squared (**Reduced Features**): 0.4596685540565566
+
+![alt text](https://github.com/grant-i/Project_4/blob/main/figures/line_compare.png)
+
+
+# Ridge
+
+wait
+
+
+# K Fold
+
+```
+from sklearn.model_selection import KFold
+kf = KFold(n_splits=5, shuffle=True, random_state=42)
+cv_scores = cross_val_score(linear_model, line_X, y, cv=kf, scoring='r2')
+print(f"Mean cross-validated R-squared: {cv_scores.mean()}")
+```
+
+**Mean cross-validated R-squared: 0.35885767272885927**
+
+Single R²: Might overestimate or underestimate performance based on one data split.
+
+Mean Cross-validated R²: Provides a more balanced view of the model’s performance across different data partitions, which is typically more reliable for evaluating real-world performance.
+
+![alt text](https://github.com/grant-i/Project_4/blob/main/figures/residual.png)
+
+
+# PCA
+
+```
+# Standardizing the data
+scaler = StandardScaler()
+line_X_scaled = scaler.fit_transform(line_X)
+
+# Apply PCA
+pca = PCA(n_components=0.95)  # Retaining components explaining 95% of the variance
+line_X_pca = pca.fit_transform(line_X_scaled)
+
+# Check how many components were retained
+pca.n_components_
+
+# Standardizing the data
+scaler = StandardScaler()
+line_X_scaled = scaler.fit_transform(line_X)
+
+# Apply PCA to reduce to 5 components
+pca = PCA(n_components=5)
+line_X_pca = pca.fit_transform(line_X_scaled)
+
+# Check the shape of the transformed data
+print("Shape of the data after PCA:", line_X_pca.shape)
+```
+Shape of the data after PCA: (118, 5)
+
+```
+# Split the data into training and testing sets again
+X_train_pca, X_test_pca, y_train, y_test = train_test_split(line_X_pca, line_y, test_size=0.2, random_state=42)
+
+# Create and train the linear regression model with the reduced feature set
+model_reduced = LinearRegression()
+model_reduced.fit(X_train_pca, y_train)
+
+# Predicting the test set results
+y_pred_pca = model_reduced.predict(X_test_pca)
+
+# Evaluate the model
+mse = mean_squared_error(y_test, y_pred_pca)
+r2 = r2_score(y_test, y_pred_pca)
+
+print(f"Mean Squared Error: {mse}")
+print(f"R-squared: {r2}")
+```
+
+Mean Squared Error: 10.800929008597786
+R-squared: 0.5075266684219414
+
+
+![alt text](https://github.com/grant-i/Project_4/blob/main/figures/pca_viz_1.png)
+
+[alt text](https://github.com/grant-i/Project_4/blob/main/figures/pca_viz_2.png)
