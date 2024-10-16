@@ -78,7 +78,8 @@ def load_data(file_path):
         print(f"Error: {file_path} not found.")
         return pd.DataFrame()
 
-``` Load datasets
+Load datasets
+```
     veg_df = load_data('part 1 ETL Workflow/raw_files/Vegetable-Prices-2022.csv')
     fru_df = load_data('part 1 ETL Workflow/raw_files/Fruit-Prices-2022.csv')
     more_df = load_data('part 1 ETL Workflow/raw_files/pp_national_average_prices_csv.csv')
@@ -98,3 +99,65 @@ more_df = more_df.assign(
     RetailPrice=more_df['price_100gm'] * inflation_factor * price_per_100g_to_lb
 ).drop(columns=['price_100gm'])
 ```
+
+3. Merge, Clean and Save
+
+```
+working_df = pd.concat([vegnut_df, fruitnut_df, morenut_df], ignore_index=True)
+
+# Step 1: Dropping unnecessary columns such as 'Unnamed: 0'
+df_cleaned = working_df.drop(columns=['Unnamed: 0'])
+
+# Step 2: Check for missing values
+missing_values = df_cleaned.isnull().sum()
+
+# Step 3: Drop rows with missing target values (if any)
+df_cleaned = df_cleaned.dropna(subset=['RetailPrice'])
+
+# Save the dataset to CSV
+df = pd.read_csv('final_working.csv')
+df.head()
+```
+
+4. Visually Inspect Data
+
+# Shape of Data
+
+```# Remove rows where RetailPrice is greater than 30
+df_no_outliers = df[df['RetailPrice'] <= 30]
+```
+
+# Inspect Features
+```# Correlation of Data
+sns.heatmap(df_essentials.corr(), annot=True, cmap='coolwarm')
+plt.show()
+```
+
+5. Model Data
+
+# Linear Regression
+```# Create and train the linear regression model
+linear_model = LinearRegression()
+linear_model.fit(X_train, y_train)
+
+# Make predictions on the test set
+line_y_pred = linear_model.predict(X_test)
+
+# Calculate performance metrics
+line_mse = mean_squared_error(y_test, line_y_pred)
+line_r2 = r2_score(y_test, line_y_pred)
+
+# Display the coefficients, MSE, and R-squared value
+line_coefficients = linear_model.coef_
+line_intercept = linear_model.intercept_
+
+print("Mean Squared Error:", line_mse)
+print("R-squared:", line_r2)
+
+line_coefficients, line_intercept
+```
+
+Mean Squared Error: 12.495409510694495
+R-squared: 0.43026604968281645
+
+Maybe a poor fit because of clusters
