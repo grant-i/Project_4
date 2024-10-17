@@ -38,6 +38,22 @@ These features contribute to the understanding of a food product's nutritional p
 
 The performance of the models was evaluated using metrics such as R² and Mean Squared Error (MSE):
 
+**Linear Regression**
+Mean Squared Error: 12.495409510694495
+R-squared: 0.43026604968281645
+
+**Random Foreset Regression**
+Mean Squared Error: 13.950298154366925
+R-squared: 0.36392973205179613
+
+**Linear Regression w/ Reduced Features**
+Mean Squared Error (Reduced Features): 11.850553551899461
+R-squared (Reduced Features): 0.4596685540565566
+
+**PCA**
+Mean Squared Error: 10.800929008597786
+R-squared: 0.5075266684219414
+
 - **R²** for Ridge Regression: ~0.43
 - Further tuning of the models was performed to improve these results.
 
@@ -53,14 +69,7 @@ To run the project locally, follow these steps:
 2. Install required dependencies:
    
 ```
-   pandas
-   scikit-learn
-   seaborn
-   matplotlib
-   numpy
-   hvplot
-   plotly
-   statsmodels
+   https://github.com/grant-i/Project_4/blob/main/requirements.txt
 ```
 
 ## Data Loading, Standardization, and Cleaning
@@ -147,6 +156,19 @@ plt.show()
 ![alt text](https://github.com/grant-i/Project_4/blob/main/figures/heat_map.png)
 
 5. Model Data
+
+```
+# Prepare the data for training
+line_X = df_essentials[features]
+line_y = df_essentials[target]
+
+# Split the data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(line_X, line_y, test_size=0.2, random_state=42)
+```
+NOTE: After feature analysis a new variable y was declared instead of line_y for reduced data frame
+```X_reduced = df_no_outliers[reduced_features]
+y = df_no_outliers[target]
+```
 
 # Linear Regression
 ```# Create and train the linear regression model
