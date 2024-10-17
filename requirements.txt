@@ -1,0 +1,24 @@
+# Flask and related dependencies
+Flask-SQLAlchemy>=2.5.1
+Flask>=2.0.1
+gunicorn>=20.1.0
+
+# SQLAlchemy and PostgreSQL connection
+SQLAlchemy>=1.4.0
+psycopg2-binary>=2.9.1
+
+# Machine learning and data processing
+pandas>=1.3.0
+scikit-learn>=0.24.2
+statsmodels>=0.12.2
+numpy>=1.21.0
+
+# Visualization
+seaborn>=0.11.2
+matplotlib>=3.4.2
+hvplot>=0.7.3
+plotly>=5.1.0
+
+# Additional utilities
+setuptools>=57.4.0
+pip>=21.1.3
