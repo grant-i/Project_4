@@ -328,3 +328,21 @@ print(f"R-squared: {r2}")
 ![alt text](https://github.com/grant-i/Project_4/blob/main/figures/pca_viz_1.png)
 
 ![alt text](https://github.com/grant-i/Project_4/blob/main/figures/pca_viz_2.png)
+
+
+## Afterwords 
+
+Additional Feature Engineering 
+
+**Feature Engineering of Protein to Carbohydrate Ratio**
+
+```# Create protein-to-carb ratio and drop the original 'proteins_100g' and 'carbohydrates_100g' columns if needed
+df_with_eng_feature = df_no_outliers.assign(
+    protein_to_carb_ratio=df_no_outliers['proteins_100g'] / df_no_outliers['carbohydrates_100g']
+).replace([np.inf, -np.inf], np.nan).fillna(0).drop(columns=['proteins_100g', 'carbohydrates_100g'])
+
+eng_f = ['transformed_carbohydrates_100g']
+```
+
+**Redraft**
+Begin with IQR and Z-score filters on a larger data set and then reduce
