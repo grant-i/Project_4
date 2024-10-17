@@ -332,6 +332,18 @@ print(f"R-squared: {r2}")
 
 ## Afterwords 
 
+**Overall Poor Performance**
+
+Test Set Performance:
+Mean Squared Error (Test): 11.850553551899438
+R-squared (Test): 0.4596685540565577
+
+Training Set Performance:
+Mean Squared Error (Train): 10.369893741854172
+R-squared (Train): 0.4725794249144787
+
+
+
 Additional Feature Engineering 
 
 **Feature Engineering of Protein to Carbohydrate Ratio**
