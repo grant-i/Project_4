@@ -12,7 +12,6 @@ This project aims to create a predictive model that estimates the pricing of foo
   - Multiple machine learning models were developed and tested to predict prices, including:
     - **Linear Regression**
     - **Random Forest**
-    - **Ridge Regression**
     - **Principal Component Analysis (PCA)** was used to reduce dimensionality and highlight the most important features.
 
 ## Key Features
