@@ -54,8 +54,6 @@ R-squared (Reduced Features): 0.4596685540565566
 Mean Squared Error: 10.800929008597786
 R-squared: 0.5075266684219414
 
-- **R²** for Ridge Regression: ~0.43
-- Further tuning of the models was performed to improve these results.
 
 ## Installation & Dependencies
 
@@ -274,29 +272,6 @@ R-squared (**Reduced Features**): 0.4596685540565566
 *Improvement*
 
 ![alt text](https://github.com/grant-i/Project_4/blob/main/figures/line_compare.png)
-
-
-# Ridge
-
-wait
-
-
-# K Fold
-
-```
-from sklearn.model_selection import KFold
-kf = KFold(n_splits=5, shuffle=True, random_state=42)
-cv_scores = cross_val_score(linear_model, line_X, y, cv=kf, scoring='r2')
-print(f"Mean cross-validated R-squared: {cv_scores.mean()}")
-```
-
-**Mean cross-validated R-squared: 0.35885767272885927**
-
-Single R²: Might overestimate or underestimate performance based on one data split.
-
-Mean Cross-validated R²: Provides a more balanced view of the model’s performance across different data partitions, which is typically more reliable for evaluating real-world performance.
-
-![alt text](https://github.com/grant-i/Project_4/blob/main/figures/residual.png)
 
 
 # PCA
