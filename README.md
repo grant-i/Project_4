@@ -137,22 +137,6 @@ df.head()
 4. Visually Inspect Data
 
 
-** mean for transformed columns **
-These are normalized values from the kaggle data set
-```
-Averages of features in df:
-transformed_carbohydrates_100g      0.041203
-transformed_fat_100g               -0.184333
-transformed_proteins_100g          -0.346366
-transformed_sugars_100g             0.132937
-transformed_salt_100g              -0.207586
-transformed_other_carbs            -0.070118
-transformed_energy_100g            -0.039228
-transformed_reconstructed_energy   -0.032001
-transformed_g_sum                  -0.024871
-```
-
-
 
 # Graphs
 
@@ -168,9 +152,36 @@ df_no_outliers = df[df['RetailPrice'] <= 30]
 
 
 ** Comparison of removal of outliers **
-There is a lot of change after removing the outliers.
+There is a lot of change after removing the outliers and even changes the means
 
-![alt text](https://github.com/grant-i/Project_4/blob/main/figures/super_heat.png)
+** mean for transformed columns **
+These are normalized values from the kaggle data set
+```
+Averages of features in df:
+transformed_carbohydrates_100g      0.041203
+transformed_fat_100g               -0.184333
+transformed_proteins_100g          -0.346366
+transformed_sugars_100g             0.132937
+transformed_salt_100g              -0.207586
+transformed_other_carbs            -0.070118
+transformed_energy_100g            -0.039228
+transformed_reconstructed_energy   -0.032001
+transformed_g_sum                  -0.024871
+dtype: float64
+
+Averages of features in df_essentials(removed outliers):
+transformed_carbohydrates_100g      0.049034
+transformed_fat_100g               -0.190739
+transformed_proteins_100g          -0.354148
+transformed_sugars_100g             0.138058
+transformed_salt_100g              -0.214761
+transformed_other_carbs            -0.075255
+transformed_energy_100g            -0.044032
+transformed_reconstructed_energy   -0.035365
+transformed_g_sum                  -0.024476
+```
+
+![alt text](https://github.com/grant-i/Project_4/blob/main/figures/super_hist.png)
 
 
 # Inspect Features
@@ -183,7 +194,7 @@ plt.show()
 ![alt text](https://github.com/grant-i/Project_4/blob/main/figures/heat_map.png)
 
 
-
+** Fat has a high correlation with carbohydrates and sugars... **
 
 5. Model Data
 
