@@ -1,0 +1,27 @@
+Diagonal Plots:
+
+	•	The diagonal contains kernel density estimates (KDEs), which show the distribution of each feature. The smoother the curve, the more continuous the distribution. Features like transformed_carbohydrates_100g and transformed_fat_100g seem to have a more normally distributed shape, while others like transformed_sugars_100g and transformed_energy_100g seem to have multiple peaks, suggesting a bimodal distribution or significant skew.
+
+Off-Diagonal Scatter Plots:
+
+	•	These off-diagonal scatter plots display pairwise relationships between the features. Key points:
+	•	transformed_energy_100g and transformed_reconstructed_energy seem to have a strong linear relationship, as indicated by a clear diagonal line. This suggests that these two features are highly correlated, which is expected if one is a reconstruction of the other.
+	•	There are visible clusters in several plots, such as between transformed_carbohydrates_100g and transformed_sugars_100g. This may indicate that these features tend to group together, possibly indicating underlying subcategories in the data.
+	•	The relationship between transformed_proteins_100g and other features like transformed_fat_100g or transformed_energy_100g seems weaker, with more scattered points, implying low correlation.
+
+Potential Correlations:
+
+	•	As mentioned, transformed_energy_100g and transformed_reconstructed_energy have a strong positive correlation.
+	•	transformed_carbohydrates_100g seems to have a positive relationship with transformed_sugars_100g, which makes sense since sugars are part of carbohydrates.
+	•	transformed_fat_100g and transformed_energy_100g show some degree of positive correlation, meaning higher fat content tends to contribute to higher energy content.
+
+Other Observations:
+
+	•	There are some visible outliers, particularly in features like transformed_fat_100g and transformed_sugars_100g where a few points are distant from the majority. These outliers may represent extreme cases in the dataset and could warrant further investigation.
+	•	The distribution of transformed_other_carbs appears spread out and less defined, suggesting variability in how these other carbohydrates are distributed in the data.
+
+Next Steps:
+
+	•	Investigate Correlations: It might be useful to compute the correlation matrix to get a numeric sense of these relationships.
+	•	Outlier Handling: Consider looking into those outliers for possible cleaning or investigation.
+	•	Feature Selection: Strongly correlated features (like transformed_energy_100g and transformed_reconstructed_energy) may lead to multicollinearity in models, so consider addressing this in further analysis.
