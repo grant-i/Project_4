@@ -293,6 +293,7 @@ transformed_reconstructed_energy             |  transformed_g_sum          |  tr
 
 ### Dropping transformed_reconstructed_energy did have the best effect on VIF - for future feature selection, play with more features
 
+
 # Feature Selection and Model Validation
 ```# Create a copy of the features list to avoid modifying the original
 reduced_features = features.copy()
