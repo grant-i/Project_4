@@ -330,8 +330,8 @@ print(f"R-squared: {r2}")
 ![alt text](https://github.com/grant-i/Project_4/blob/main/figures/pca_viz_2.png)
 
 
-## Afterwords 
 
+## Conclusion
 **Overall Poor Performance**
 
 Test Set Performance:
@@ -343,7 +343,7 @@ Mean Squared Error (Train): 10.369893741854172
 R-squared (Train): 0.4725794249144787
 
 
-
+## Afterwords 
 Additional Feature Engineering 
 
 **Feature Engineering of Protein to Carbohydrate Ratio**
