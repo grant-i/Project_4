@@ -442,7 +442,7 @@ R-squared: 0.49493098815228953
 
 **Redraft**
 
-With additional time and feature engineering a more precise understanding of how the feature dynamics play a part in this data.  This is just a glimpse of what can be done.  For deeper insight, another notebook is being set up to play with feature engineering <here>.  Stay tuned for updates.
+With additional time and feature engineering a more precise understanding of how the feature dynamics play a part in this data.  This is just a glimpse of what can be done.  For deeper insight, another notebook is being set up to play with feature engineering [here](extended_/final_draft.ipynb).  Stay tuned for updates.
 
 
 
