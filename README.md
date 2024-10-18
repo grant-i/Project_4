@@ -1,6 +1,6 @@
 # Nutritional Price Prediction Project
 
-This project aims to create a predictive model that estimates the pricing of food products based on their nutritional content. The main goal is to understand the relationship between nutrient values and price, and evaluate whether certain foods are overpriced or underpriced.
+This project aims to create a predictive model that estimates the pricing of food products based on their nutritional content. The main goal is to understand the relationship between nutrient values and price so it is possible to evaluate whether certain foods are overpriced or underpriced using this metric.
 
 ## Project Structure
 
@@ -441,4 +441,9 @@ Mean Squared Error: 11.077177568030576
 R-squared: 0.49493098815228953
 
 **Redraft**
+
+With additional time and feature engineering a more precise understanding of how the feature dynamics play a part in this data.  This is just a glimpse of what can be done.  For deeper insight, another notebook is being set up to play with feature engineering <here>.  Stay tuned for updates.
+
+
+
 Begin with IQR and Z-score filters on a larger data set and then reduce
