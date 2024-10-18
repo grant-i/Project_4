@@ -382,10 +382,32 @@ print(f"R-squared: {r2}")
 
 ## Conclusion
 
-
+#### Feature selection is so important when working with linear regression models because correlation is the main contributor to building an r2
 
 ## Afterwords 
 Additional Feature Engineering 
+
+#### Further analysis of interworkings of features can be seen with a scatter plot matrix
+
+```
+# Create a pairplot (scatter plot matrix) for the features
+sns.pairplot(df[[
+    'transformed_carbohydrates_100g', 
+    'transformed_fat_100g', 
+    'transformed_proteins_100g', 
+    'transformed_sugars_100g', 
+    'transformed_salt_100g', 
+    'transformed_other_carbs', 
+    'transformed_energy_100g', 
+    'transformed_reconstructed_energy', 
+    'transformed_g_sum'
+]], diag_kind='kde')
+
+plt.suptitle("Scatter Plot Matrix of Features", y=1.02, size=16)
+plt.show()
+```
+![alt text](https://github.com/grant-i/Project_4/blob/main/figures/futures.png)
+[extended_/sp_matrix.txt](url)
 
 **Feature Engineering of Protein to Carbohydrate Ratio**
 
