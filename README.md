@@ -286,7 +286,12 @@ Random Forest Mean Squared Error: 13.950298154366925 compared to Linear Regressi
 9                        RetailPrice    1.939766
 10                          constant    6.251324
 ```
+**DROPPING**
+transformed_reconstructed_energy             |  transformed_g_sum          |  transformed_energy_100g
+:-------------------------:|:-------------------------:|:-------------------------:
+![alt text](https://github.com/grant-i/Project_4/blob/main/figures/Screenshot 2024-10-18 at 12.33.00 PM.png)  |  ![alt text](https://github.com/grant-i/Project_4/blob/main/figures/Screenshot 2024-10-18 at 12.33.06 PM.png) |![alt text](https://github.com/grant-i/Project_4/blob/main/figures/Screenshot 2024-10-18 at 12.33.11 PM.png) 
 
+### Dropping transformed_reconstructed_energy did have the best effect on VIF - for future feature selection, play with more features
 
 # Feature Selection and Model Validation
 ```# Create a copy of the features list to avoid modifying the original
