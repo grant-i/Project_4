@@ -16,7 +16,7 @@ This project aims to create a predictive model that estimates the pricing of foo
 
 ## Key Features
 
-The dataset contains several engineered features that were helpful in normalizing the dataset from Kaggle. [Dataset link](https://www.kaggle.com/code/allunia/hidden-treasures-in-our-groceries):
+The dataset contains several engineered features that were helpful in normalizing the dataset from [Kaggle](https://www.kaggle.com/code/allunia/hidden-treasures-in-our-groceries):
 
 - `transformed_carbohydrates_100g`
 - `transformed_fat_100g`
@@ -27,6 +27,9 @@ The dataset contains several engineered features that were helpful in normalizin
 - `transformed_energy_100g`
 - `transformed_g_sum`
 - `reconstructed_energy`
+- `Product Price`
+  
+Product Prices - [USDA fruit and vegetables](https://www.ers.usda.gov/data-products/fruit-and-vegetable-prices/) // [USDA other](https://www.ers.usda.gov/data-products/purchase-to-plate/)
 
 ### Feature Details:
 - **g_sum**: Represents the rounded sum of the fat, carbohydrates, proteins, and salt values in the data. This helps identify products with potential false entries.
