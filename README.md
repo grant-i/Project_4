@@ -27,9 +27,10 @@ The dataset contains several engineered features that were helpful in normalizin
 - `transformed_energy_100g`
 - `transformed_g_sum`
 - `reconstructed_energy`
-- `Product Price`
-  
-Product Prices - [USDA fruit and vegetables](https://www.ers.usda.gov/data-products/fruit-and-vegetable-prices/) // [USDA other](https://www.ers.usda.gov/data-products/purchase-to-plate/)
+
+
+Second and Third Datasets [USDA fruit and vegetables](https://www.ers.usda.gov/data-products/fruit-and-vegetable-prices/) // [USDA other](https://www.ers.usda.gov/data-products/purchase-to-plate/):
+-  `product prices`
 
 ### Feature Details:
 - **g_sum**: Represents the rounded sum of the fat, carbohydrates, proteins, and salt values in the data. This helps identify products with potential false entries.
