@@ -40,19 +40,19 @@ The performance of the models was evaluated using metrics such as R² and Mean S
 
 **Linear Regression**
 Mean Squared Error: 12.495409510694495
-R-squared: 0.43026604968281645
+*R-squared: 0.43026604968281645*
 
 **Random Foreset Regression**
 Mean Squared Error: 13.950298154366925
-R-squared: 0.36392973205179613
+*R-squared: 0.36392973205179613*
 
 **Linear Regression w/ Reduced Features**
 Mean Squared Error (Reduced Features): 11.850553551899461
-R-squared (Reduced Features): 0.4596685540565566
+*R-squared (Reduced Features): 0.4596685540565566*
 
 **PCA**
 Mean Squared Error: 10.800929008597786
-R-squared: 0.5075266684219414
+*R-squared: 0.5075266684219414*
 
 
 ## Installation & Dependencies
