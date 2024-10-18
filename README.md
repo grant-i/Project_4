@@ -204,7 +204,7 @@ Maybe a poor fit because of clusters
 
 
 Random Forest is supposed to be better at seeing clusters especially since linear regression is made for lines.
-# Random Forest Regresson
+# Random Forest Regression
 
 ```
 # Prepare the data for training
@@ -332,15 +332,7 @@ print(f"R-squared: {r2}")
 
 
 ## Conclusion
-**Overall Poor Performance**
 
-Test Set Performance:
-Mean Squared Error (Test): 11.850553551899438
-R-squared (Test): 0.4596685540565577
-
-Training Set Performance:
-Mean Squared Error (Train): 10.369893741854172
-R-squared (Train): 0.4725794249144787
 
 
 ## Afterwords 
@@ -355,6 +347,24 @@ df_with_eng_feature = df_no_outliers.assign(
 
 eng_f = ['transformed_carbohydrates_100g']
 ```
+** Linear Regression for Engineered Features **
+```
+Mean Squared Error: 11.850553551899438
+R-squared: 0.4596685540565577
+```
+**Overall Poor Performance of Linear Regression Model**
+
+Test Set Performance:
+Mean Squared Error (Test): 11.850553551899438
+R-squared (Test): 0.4596685540565577
+
+Training Set Performance:
+Mean Squared Error (Train): 10.369893741854172
+R-squared (Train): 0.4725794249144787
+
+**Additional PCA of Engineered Feature**
+Mean Squared Error: 11.077177568030576
+R-squared: 0.49493098815228953
 
 **Redraft**
 Begin with IQR and Z-score filters on a larger data set and then reduce
