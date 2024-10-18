@@ -136,6 +136,24 @@ df.head()
 
 4. Visually Inspect Data
 
+
+** mean for transformed columns **
+These are normalized values from the kaggle data set
+```
+Averages of features in df:
+transformed_carbohydrates_100g      0.041203
+transformed_fat_100g               -0.184333
+transformed_proteins_100g          -0.346366
+transformed_sugars_100g             0.132937
+transformed_salt_100g              -0.207586
+transformed_other_carbs            -0.070118
+transformed_energy_100g            -0.039228
+transformed_reconstructed_energy   -0.032001
+transformed_g_sum                  -0.024871
+```
+
+
+
 # Graphs
 
 ![alt text](https://github.com/grant-i/Project_4/blob/main/figures/histogram_1.png) ![alt text](https://github.com/grant-i/Project_4/blob/main/figures/scatter_1.png)
@@ -148,6 +166,13 @@ df_no_outliers = df[df['RetailPrice'] <= 30]
 
 ![alt text](https://github.com/grant-i/Project_4/blob/main/figures/hist_2.png) ![alt text](https://github.com/grant-i/Project_4/blob/main/figures/scat_2.png)
 
+
+** Comparison of removal of outliers **
+There is a lot of change after removing the outliers.
+
+![alt text](https://github.com/grant-i/Project_4/blob/main/figures/super_heat.png)
+
+
 # Inspect Features
 ```
 # Correlation of Data
@@ -156,6 +181,9 @@ plt.show()
 ```
 
 ![alt text](https://github.com/grant-i/Project_4/blob/main/figures/heat_map.png)
+
+
+
 
 5. Model Data
 
