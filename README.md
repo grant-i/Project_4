@@ -407,6 +407,9 @@ plt.suptitle("Scatter Plot Matrix of Features", y=1.02, size=16)
 plt.show()
 ```
 ![alt text](https://github.com/grant-i/Project_4/blob/main/figures/futures.png)
+
+
+*For analysis of plot shapes*
 [extended_/sp_matrix.txt](url)
 
 **Feature Engineering of Protein to Carbohydrate Ratio**
